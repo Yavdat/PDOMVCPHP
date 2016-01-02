@@ -14,30 +14,7 @@ class DB
     {
         $sth=$this->dbh->prepare($sql);
         $sth->execute($params);
-        return $sth->fetchAll();
+        return $sth->fetchAll(PDO::FETCH_OBJ);
     }
 
-    /*public function query($sql, $class='stdClass')
-    {
-        $res = mysql_query($sql);
-        if (false === $res) {
-            return false;
-        }
-        $ret =[];
-        while($row=mysql_fetch_object($res,$class))
-        {
-            $ret[]=$row;
-        }
-        return $ret;
-    }*/
-
-    public function queryAll($sql, $class='stdClass')
-    {
-        return $this->query($sql,$class);
-    }
-
-    public function queryOne($sql, $class='stdClass')
-    {
-        return $this->query($sql,$class)[0];
-    }
 }
