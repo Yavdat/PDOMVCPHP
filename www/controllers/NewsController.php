@@ -7,9 +7,11 @@ class NewsController
     public function actionAll()
     {
 
-        var_dump(
-            NewsModel::findAll()
-        );
+        $article=new NewsModel();
+
+        $article->title='ывапыв';
+        $article->text='пыврыв!';
+        $article->insert();
         die;
     /*
         $news=News::getAll();
